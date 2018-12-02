@@ -1,0 +1,13 @@
+{
+  "docs": {
+    "Introduction": ["quick-start", "about-gqlify"],
+    "Data Model": ["data-model"],
+    "GraphQL API": [],
+    "Data Source": [],
+    "Data Relationship": [],
+    "Authentication": []
+  },
+  "docs-other": {
+    "First Category": []
+  }
+}

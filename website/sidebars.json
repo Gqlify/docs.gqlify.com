@@ -1,11 +1,30 @@
 {
   "docs": {
     "Introduction": ["quick-start", "about-gqlify"],
-    "Data Model": ["data-model"],
+    "Data Model": [
+      "data-model-overview",
+      "scalar-types",
+      "object-types",
+      "data-model-relationships",
+      "schema-directives",
+      "add-new-scalar"
+    ],
     "GraphQL API": [],
-    "Data Source": ["data-source"],
-    "Data Relationship": [],
-    "Authentication": []
+    "Data Source": [
+      "data-source-overview",
+      "memory",
+      "firebase",
+      "firestore",
+      "mongodb"
+    ],
+    "Data Relationship": [
+      "one-to-one-relationship",
+      "one-to-many-relationship",
+      "many-to-many-relationship"
+   ],
+    "Authentication": [
+      "jwt-signed-token"
+    ]
   },
   "docs-other": {
     "First Category": []

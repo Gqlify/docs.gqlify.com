@@ -45,11 +45,11 @@ General [object types](https://www.apollographql.com/docs/apollo-server/essentia
 Define one field of type map to another type. Also, in another type, define one field map to the type. For example, each person link to one contact information. You don't have to tag any directive for one-to-one relationship. GQLify will auto detect it.
 
 ```graphql
-type User {
+type User @GQLifyModel(dataSource: "memory", key: "users")  {
   contact: Contact!
 }
 
-type Contact {
+type Contact @GQLifyModel(dataSource: "memory", key: "contacts")  {
   user: User!
 }
 ```
@@ -57,7 +57,7 @@ type Contact {
 A field also can be mapped to it's type. Like each person has one spouse.
 
 ```graphql
-type User {
+type User @GQLifyModel(dataSource: "memory", key: "users")  {
   spouse: User!
 }
 ```
@@ -67,11 +67,11 @@ type User {
 Define one field of type map to array of another type. Also, in another type, define one field map to the type. For example, each author can write many books. You don't have to tag any directive for one-to-many relationship. GQLify will auto detect it.
 
 ```graphql
-type User {
+type User @GQLifyModel(dataSource: "memory", key: "users")  {
   books: [Book!]!
 }
 
-type Book {
+type Book @GQLifyModel(dataSource: "memory", key: "books")  {
   author: User!
 }
 ```
@@ -79,7 +79,7 @@ type Book {
 You can also define a field map to array of it's type. Like each person has many friends.
 
 ```graphql
-type User {
+type User @GQLifyModel(dataSource: "memory", key: "users")  {
   friends: [User!]!
 }
 ```
@@ -89,11 +89,11 @@ type User {
 GQLify provides directive `relation` with one parameter `name`. You can define many-to-many relationship by tag `relation` directive with same `name` in two fields. For example, one user can join many groups and one group includes many users.
 
 ```graphql
-type User {
+type User @GQLifyModel(dataSource: "memory", key: "users")  {
   groups: [Group!]! @relation(name: "Membership")
 }
 
-type Group {
+type Group @GQLifyModel(dataSource: "memory", key: "groups")  {
   users: [User!]! @relation(name: "Membership")
 }
 ```
@@ -103,10 +103,48 @@ type Group {
 Gqlify provide special directive `GQLifyModel` with parameters `dataSource` and `key` which you can use to assign storage.
 
 * `GQLifyModel`
-  * `dataSource`: storage for the object type. Now support: `memory`, `firebase`, `firestore` and `mongodb`.
-  * `key`: like table name in SQL or collection name in No-SQL
+  * `dataSource`: storage name for the object type. You can see more details in [Data Source](data-source.md).
+  * `key`: like table name in SQL or collection name in No-SQL.
 
 ### Add new Schema directive
 
 
 ### Add new Scalar
+
+You can define [new scalar](https://www.apollographql.com/docs/apollo-server/v2/features/scalars-enums.html#custom-scalars) like Apollo Server.
+
+1. Define scalar name in SDL.
+
+```graphql
+scalar MyCustomScalar
+```
+
+2. Define how to serialize `MyCustomScalar`. You can see more information in [`GraphQLScalarType`](https://graphql.org/graphql-js/type/#graphqlscalartype).
+
+```js
+// myCustomScalar.js
+const { GraphQLScalarType } = require('graphql')
+
+module.exports = new GraphQLScalarType({
+  name: 'MyCustomScalar',
+  description: 'my custom scalar',
+  serialize: ...,
+  parseValue: ...,
+  parseLiteral: ...,
+})
+```
+
+3. Map new scalar in GQLify.
+
+```js
+const { Gqlify } = require('@gqlify/server')
+const MyCustomScalar = require('./myCustomScalar')
+
+const server = new GqlifyServer({
+  sdl: ...,
+  dataSources: ...,
+  scalars: {
+    MyCustomScalar
+  }
+})
+```

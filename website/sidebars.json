@@ -3,7 +3,7 @@
     "Introduction": ["quick-start", "about-gqlify"],
     "Data Model": ["data-model"],
     "GraphQL API": [],
-    "Data Source": [],
+    "Data Source": ["data-source"],
     "Data Relationship": [],
     "Authentication": []
   },

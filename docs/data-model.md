@@ -98,7 +98,7 @@ type Group @GQLifyModel(dataSource: "memory", key: "groups")  {
 }
 ```
 
-### Schema directive
+## Schema directive
 
 Gqlify provide special directive `GQLifyModel` with parameters `dataSource` and `key` which you can use to assign storage.
 
@@ -106,10 +106,10 @@ Gqlify provide special directive `GQLifyModel` with parameters `dataSource` and 
   * `dataSource`: storage name for the object type. You can see more details in [Data Source](data-source.md).
   * `key`: like table name in SQL or collection name in No-SQL.
 
-### Add new Schema directive
+## Add new Schema directive
 
 
-### Add new Scalar
+## Add new Scalar
 
 You can define [new scalar](https://www.apollographql.com/docs/apollo-server/v2/features/scalars-enums.html#custom-scalars) like Apollo Server.
 

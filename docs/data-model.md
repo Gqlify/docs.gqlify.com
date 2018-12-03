@@ -11,7 +11,7 @@ Data model is written by [GraphQL Schema Definition Language]() (SDL) and stored
 
 ## Example
 
-You can use general SDL with defined directive `@GQLifyModel` with parameters `dataSource` and `key` in Gqlify. `dataSource` tell Gqlify which storage store this objects. `key` is like table name in SQL or collection name in NoSQL.
+You can use general SDL with predefined directive `@GQLifyModel` with parameters `dataSource` and `key` in Gqlify. `dataSource` tell Gqlify which storage store this objects. `key` is an argument which provide more information to initialize storage.
 
 Also, there are some special directive in Gqlify like `unique` and `autoGen`. `unique` define a field is unique. `autoGen` define a field will auto generate by Gqlify, so user don't have to input the field in creation.
 
@@ -100,11 +100,7 @@ type Group @GQLifyModel(dataSource: "memory", key: "groups")  {
 
 ## Schema directive
 
-Gqlify provide special directive `GQLifyModel` with parameters `dataSource` and `key` which you can use to assign storage.
-
-* `GQLifyModel`
-  * `dataSource`: storage name for the object type. You can see more details in [Data Source](data-source.md).
-  * `key`: like table name in SQL or collection name in No-SQL.
+Gqlify provide special directive `GQLifyModel` which you can use to assign storage. GQLify support multiple storage. Please read more information in [Data Source](data-source.md).
 
 ## Add new Schema directive
 
@@ -140,7 +136,7 @@ module.exports = new GraphQLScalarType({
 const { Gqlify } = require('@gqlify/server')
 const MyCustomScalar = require('./myCustomScalar')
 
-const server = new GqlifyServer({
+const server = new Gqlify({
   sdl: ...,
   dataSources: ...,
   scalars: {

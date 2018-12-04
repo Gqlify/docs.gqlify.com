@@ -108,9 +108,10 @@ const siteConfig = {
   // Show documentation's last update time.
   // enableUpdateTime: true,
 
+  gaTrackingId: "UA-130423409-1",
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  //   repoUrl: 'https://github.com/facebook/test-site',
+  repoUrl: 'https://github.com/Canner/gqlify',
 };
 
 module.exports = siteConfig;

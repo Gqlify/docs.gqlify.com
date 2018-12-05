@@ -14,7 +14,19 @@
       "schema-directives",
       "add-new-scalar"
     ],
-    "GraphQL API": [],
+    "GraphQL API": [
+      "graphql-api-overview",
+      "graphql-api-queries",
+      "graphql-api-mutations",
+      "graphql-api-plugins",
+      "graphql-api-query-plugin",
+      "graphql-api-base-type-plugin",
+      "graphql-api-where-input-plugin",
+      "graphql-api-create-mutation-plugin",
+      "graphql-api-update-mutation-plugin",
+      "graphql-api-delete-mutation-plugin",
+      "graphql-api-create-own-plugin"
+    ],
     "Data Source": [
       "data-source-overview",
       "memory",

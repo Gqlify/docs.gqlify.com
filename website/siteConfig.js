@@ -80,7 +80,7 @@ const siteConfig = {
     theme: 'atom-one-dark',
   },
 
-  usePrism: ['jsx', 'js', 'bash', 'json', 'graphql'],
+  usePrism: ['jsx', 'js', 'typescript', 'bash', 'json', 'graphql'],
 
   // Add custom scripts here that would be placed in <script> tags.
   scripts: [

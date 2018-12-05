@@ -3,40 +3,43 @@ id: add-new-scalar
 title: Add new Scalar
 ---
 
-You can define [new scalar](https://www.apollographql.com/docs/apollo-server/v2/features/scalars-enums.html#custom-scalars) like Apollo Server.
+You can define [new scalar](https://www.apollographql.com/docs/apollo-server/v2/features/scalars-enums.html#custom-scalars) just like Apollo Server.
 
-1. Define scalar name in SDL.
+## 1. Define scalar name in datamodel.
 
 ```graphql
 scalar MyCustomScalar
 ```
 
-2. Define how to serialize `MyCustomScalar`. You can see more information in [`GraphQLScalarType`](https://graphql.org/graphql-js/type/#graphqlscalartype).
+## 2. Using a package
+Here, we’ll take the `graphql-type-json` package as an example to demonstrate what can be done. This npm package defines a JSON GraphQL scalar type.
 
-```js
-// myCustomScalar.js
-const { GraphQLScalarType } = require('graphql')
+Add the graphql-type-json package to the project’s dependencies:
 
-module.exports = new GraphQLScalarType({
-  name: 'MyCustomScalar',
-  description: 'my custom scalar',
-  serialize: ...,
-  parseValue: ...,
-  parseLiteral: ...,
-})
+```shell
+$ npm install --save graphql-type-json
 ```
 
-3. Map new scalar in GQLify.
-
+In code, require the type defined by in the npm package and use it :
 ```js
-const { Gqlify } = require('@gqlify/server')
-const MyCustomScalar = require('./myCustomScalar')
+// myCustomScalar.js
+const GraphQLJSON = require('graphql-type-json');
 
-const server = new Gqlify({
-  sdl: ...,
-  dataSources: ...,
+const { Gqlify } = require('@gqlify/server');
+
+const gqlify = new Gqlify({
+  sdl: "<datamodel>",
+  dataSources: { /* data-sources */ },
   scalars: {
-    MyCustomScalar
-  }
-})
+    JSON: GraphQLJSON
+  },
+});
+
+// use with apollo
+const server = new ApolloServer(gqlify.createApolloConfig());
+
+server.listen().then(({ url }) => {
+  // tslint:disable-next-line:no-console
+  console.log(`🚀 Server ready at ${url}`);
+});
 ```

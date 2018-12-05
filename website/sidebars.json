@@ -1,10 +1,15 @@
 {
   "docs": {
-    "Introduction": ["quick-start", "about-gqlify"],
+    "Introduction": [
+      "intro",
+      "quick-start",
+      "why-gqlify"
+    ],
     "Data Model": [
       "data-model-overview",
       "scalar-types",
       "object-types",
+      "enum-types",
       "data-model-relationships",
       "schema-directives",
       "add-new-scalar"
@@ -15,9 +20,11 @@
       "memory",
       "firebase",
       "firestore",
-      "mongodb"
+      "mongodb",
+      "create-own-data-source"
     ],
     "Data Relationship": [
+      "relationship-overview",
       "one-to-one-relationship",
       "one-to-many-relationship",
       "many-to-many-relationship"

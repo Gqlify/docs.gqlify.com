@@ -3,22 +3,46 @@ id: data-model-overview
 title: Overview
 ---
 
-The data model help Gqlify **define database schema** including which **storage** you want to use and **relationship** between each type.
+Datamodel is written by GraphQL Schema Definition Language (SDL).
 
-Data model is written by [GraphQL Schema Definition Language]() (SDL) and stored in one `.graphql` file.
+The datamodel in GQLify serves following purposes:
+1. **Defining database schema**: it tells GQLify what fields you have in models.
+2. **Data-source**: with `@GQLifyModel(dataSource: "dataSource")`, GQLify will know where you want to save your data.
+3. **Relationship**: by defining `GQLifyModel` type in field, you're telling GQLify to build relationship on the model.
+
 
 ## Example
-
-You can use general SDL with predefined directive `@GQLifyModel` with parameters `dataSource` and `key` in Gqlify. `dataSource` tell Gqlify which storage store this objects. `key` is an argument which provide more information to initialize storage.
-
-Also, there are some special directive in Gqlify like `unique` and `autoGen`. `unique` define a field is unique. `autoGen` define a field will auto generate by Gqlify, so user don't have to input the field in creation.
-
-Here we can see that `User` type has _one-to-many_ relationship with `Book`. This is caused by `books` attribute in `User` type which is defined as array of `Book` and `author` attribute in `Book` type which is defined as an `User`. **In Gqlify, you don't need to specify _one-to-one_ or _one-to-many_ relationship. Gqlify auto detect these relationship in SDL.**
-
 ```graphql
 type User @GQLifyModel(dataSource: "memory", key: "users") {
-  id: ID! @unique @autoGen # auto generate unique id
+  id: ID! @unique @autoGen
   username: String!
   email: String
+  books: [Book!]!
+}
+
+type Book @GQLifyModel(dataSource: "memory", key: "books") {
+  id: ID! @unique @autoGen
+  name: String!
+  author: User!
 }
 ```
+
+The example above illustrates some important concepts when working with datamodel:
+
+1. The two types User and Book represent a `Model` in GQLify, which also represent database tables, or equivalent term for NoSQL.
+2. There is a bi-directional one-to-many relation between User and Book (via `User.books` field and `Book.author` field).
+3. The `id` field of User and Book is under unique constraint (with `@unique`) and also auto-generated on server-side (with `@autoGen`).
+4. Fields with exclamation mark (!) followed means they're required in query and should be carried with create mutation.
+
+After defining datamodel, simply run the server and you'll see the following overview messages with defined fields with types and relationships between types.
+
+![home](assets/screenshot/start.png)
+
+## What will be covered?
+> We'll cover types you can use in datamodel in [Scalar Types](/docs/scalar-types) and [Object Types](/docs/object-types).
+
+> As relationship usage, we'll cover it at [Relationships](/docs/data-model-relationships)
+
+> As usage of directives like `@unique`, `@autoGen`, we'll cover it at [Schema directives](/docs/schema-directives)
+
+> As customized enum and scalars, we'll cover them at [Enum Types](/docs/enum-types) and [Add new Scalar](/docs/add-new-scalar).

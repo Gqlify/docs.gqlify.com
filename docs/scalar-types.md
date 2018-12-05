@@ -3,7 +3,7 @@ id: scalar-types
 title: Scalar Types
 ---
 
-Default [scalar types]((https://www.apollographql.com/docs/apollo-server/essentials/schema.html#scalar)) is same as Apollo Server. Following are default scalar types:
+Default supported scalar types are the same with [GraphQL Website](https://graphql.org/learn/schema/#scalar-types)
 
 ### `Int`
 

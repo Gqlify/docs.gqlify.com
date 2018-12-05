@@ -2,33 +2,30 @@
 id: firebase
 title: Firebase
 ---
-
-Input `key` of `GQLifyModel` for Firebase is an object including two key `cert` and `path`.
-* `cert`: the input of `cert` is service account json, which you can find in [Service Account](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk) tab on Firebase app's settings page.
-* `path`: the location of collection.
-
+## 1. download serviceAccount.json
 ![how-to-get-service-account-json](assets/data-source/firebasesdk.gif)
 
-```graphql
-type User @GQLifyModel(
-  dataSource: "firebase",
-  key: {
-    "cert": ..., # service account json
-    "path": "users"
-  }
-) {
-  ...
-}
-```
-
+## 2. Construct Firebase data-source
 ```js
-const { Gqlify } = require('@gqlify/server')
-const FirebaseDataSource = require('@gqlify/firebase')
+const { Gqlify } = require('@gqlify/server');
+const { FirebaseDataSource } = require('@gqlify/firebase');
+const cert = require('/path/to/serviceAccount.json');
+const databaseUrl = 'https://databaseName.firebaseio.com';
 
 const gqlify = new Gqlify({
   sdl: ...,
   dataSources: {
-    firebase: args => new FirebaseDataSource(defaultData[args.key]),
+    firebase: args => new FirebaseDataSource(cert, databaseUrl, args.key),
   },
 });
 ```
+
+## 3. Use in datamodel
+```graphql
+type User @GQLifyModel(dataSource: "firebase", key: "users") {
+  id: ID! @unique @autoGen
+  name: String
+}
+```
+
+

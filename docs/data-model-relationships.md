@@ -3,8 +3,42 @@ id: data-model-relationships
 title: Relationships
 ---
 
+A relation defines a connection between two models. Two models in a relation are connected via a relation field. When a relation is ambiguous, the relation field needs to be annotated with the `@relation` directive to make it clear for GQLify.
+
+## Using `@relation`
+Take following datamodel for example:
+
+```graphql
+type Book @GQLifyModel(dataSource: "memory", key: "books") {
+  authors: [User!]!
+  anotherAuthors: [User!]!
+}
+
+type User @GQLifyModel(dataSource: "memory", key: "users") {
+  books: [Book!]!
+  anotherBooks: [Book!]!
+}
+```
+
+Since there are multiple relations defined on both Book and User, it's impossible for GQLify to know what fields should be paired as one relation.
+
+Thus, using a `@relation` directive will tell GQLify what to do:
+```graphql
+type Book @GQLifyModel(dataSource: "memory", key: "books") {
+  authors: [User!]! @relation(name: "Author")
+  anotherAuthors: [User!]! @relation(name: "AnotherAuthor")
+}
+
+type User @GQLifyModel(dataSource: "memory", key: "users") {
+  books: [Book!]! @relation(name: "Author")
+  anotherBooks: [Book!]! @relation(name: "AnotherAuthor")
+}
+```
+
+GQLify will create two many-to-many relation on Book and User.
+
 ## One-to-One
-Define one field of type map to another type. Also, in another type, define one field map to the type. For example, each person link to one contact information. You don't have to tag any directive for one-to-one relationship. GQLify will auto detect it.
+Simply put model type on both side of models without brackets(`[]`) will create a `one-to-one` relationship.
 
 ```graphql
 type User @GQLifyModel(dataSource: "memory", key: "users")  {
@@ -24,10 +58,12 @@ type User @GQLifyModel(dataSource: "memory", key: "users")  {
 }
 ```
 
+> Learn more about [one-to-one relationship](/docs/one-to-one-relationship)
+
 ## One-to-Many
+One side should be wrapped with brackets to tell GQLify it's a `to-many` relation from its side.
 
-Define one field of type map to array of another type. Also, in another type, define one field map to the type. For example, each author can write many books. You don't have to tag any directive for one-to-many relationship. GQLify will auto detect it.
-
+### Example
 ```graphql
 type User @GQLifyModel(dataSource: "memory", key: "users")  {
   books: [Book!]!
@@ -38,6 +74,8 @@ type Book @GQLifyModel(dataSource: "memory", key: "books")  {
 }
 ```
 
+GQLify will create a `one-to-many` relationship between User and Book.
+
 You can also define a field map to array of it's type. Like each person has many friends.
 
 ```graphql
@@ -46,9 +84,11 @@ type User @GQLifyModel(dataSource: "memory", key: "users")  {
 }
 ```
 
-## Many-to-Many
+> Learn more about [one-to-many relationship](/docs/one-to-many-relationship)
 
-GQLify provides directive `relation` with one parameter `name`. You can define many-to-many relationship by tag `relation` directive with same `name` in two fields. For example, one user can join many groups and one group includes many users.
+
+## Many-to-Many
+Wrapped both side of relationship with brackets and GQLify will create a `many-to-many` relationship.
 
 ```graphql
 type User @GQLifyModel(dataSource: "memory", key: "users")  {
@@ -59,3 +99,5 @@ type Group @GQLifyModel(dataSource: "memory", key: "groups")  {
   users: [User!]! @relation(name: "Membership")
 }
 ```
+
+> Learn more about [many-to-many relationship](/docs/many-to-many-relationship)

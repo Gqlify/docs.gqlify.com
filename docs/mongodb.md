@@ -3,24 +3,7 @@ id: mongodb
 title: MongoDB
 ---
 
-Input `key` of `GQLifyModel` for MongoDB is an object including three key `uri`, `dbName` and `collectionName`.
-* `uri`: the link to mongodb server.
-* `dbName`: the name of database in mongodb.
-* `collectionName`: the name of collection.
-
-```graphql
-type User @GQLifyModel(
-  dataSource: "mongodb",
-  key: {
-    "uri": "mongodb://...",
-    "dbName": "gqlify",
-    "collectionName": "users"
-  }
-) {
-  ...
-}
-```
-
+## 1. Construct MongoDB data-source
 ```js
 const { Gqlify } = require('@gqlify/server')
 const MongodbDataSource = require('@gqlify/mongodb')
@@ -28,7 +11,25 @@ const MongodbDataSource = require('@gqlify/mongodb')
 const gqlify = new Gqlify({
   sdl: ...,
   dataSources: {
-    mongodb: args => new MongodbDataSource(defaultData[args.key]),
+    mongodb: args => new MongodbDataSource({uri, dbName, collectionName: args.key}),
   },
 });
 ```
+
+## 2. Use in datamodel
+```graphql
+type User @GQLifyModel(dataSource: "mongodb", key: "users") {
+  id: ID! @unique @autoGen
+  name: String
+}
+```
+
+## MongodbDataSource
+```js
+new MongodbDataSource({uri, dbName, collectionName});
+```
+
+### Arguments
+* `uri`: `string`, the link to mongodb server.
+* `dbName`: `string`, the name of database in mongodb.
+* `collectionName`: `string`, the name of collection.

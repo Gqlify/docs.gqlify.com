@@ -3,33 +3,37 @@ id: quick-start
 title: Quick Start
 ---
 
+GQLify deals with the heavy lifting jobs of GraphQL API development, so you can simply define a datamodel and your GraphQL server is done!
+
+![simple-flow](assets/architecture/simple-flow.png)
+
 ## Goals
 
-* Setup Gqlify
+* Setup GQLify
 * Setup Datamodel
-* Start Gqlify with Apollo Server
+* Start GQLify with Apollo Server
 
-## Setup Gqlify
+## Setup GQLify
 
 ### Create new directory
 
-```bash
-$: mkdir gqlify-demo
-$: cd gqlify-demo
+```shell
+$ mkdir gqlify-demo
+$ cd gqlify-demo
 ```
 
-### Install Gqlify
+### Install GQLify
 
 Initialize project in current directory and install `@gqlify/server`.
 
-```bash
-$: yarn init -y
-$: yarn add @gqlify/server
+```shell
+$ yarn init -y
+$ yarn add @gqlify/server
 ```
 
 ## Setup Datamodel
 
-Create the datamodel in `demo.graphql` as follows:
+In `demo.graphql`, let's define a datamodel with user and book as follows:
 
 ```graphql
 type User @GQLifyModel(dataSource: "memory", key: "users") {
@@ -46,15 +50,23 @@ type Book @GQLifyModel(dataSource: "memory", key: "books") {
 }
 ```
 
-## Start Gqlify with Apollo Server
+### About directives
+* `@GQLifyModel`: `GQLifyModel` directive is to tell GQLify that this object type is a datamodel and should create GraphQL API around it.
+  * `dataSource: "memory"`: for this demo, we use memory data-source for quick bootstrap.
+
+* `@unique`: `unique` directive expresses a unique constraint, telling GQLify that there never will be two nodes with the same values.
+
+You can learn more about data modeling from [`Datamodel` section](/docs/data-model-overview).
+
+## Start GQLify with Apollo Server
 
 ### Prepare required packages
 
-```bash
-$: yarn add apollo-server
+```shell
+$ yarn add apollo-server
 ```
 
-### Setup Gqlify with Apollo Server
+### Setup GQLify with Apollo Server
 
 Add following code to `index.js`:
 
@@ -62,9 +74,10 @@ Add following code to `index.js`:
 const { Gqlify, MemoryDataSource } = require('@gqlify/server')
 const { ApolloServer } = require('apollo-server');
 
-// Read GraphQL Schema Definition Language (sdl)
+// Read datamodel
 const sdl = readFileSync(__dirname + '/demo.graphql', { encoding: 'utf8' });
 
+// mock default data
 const defaultData = {
   users: [
     {id: '1', username: 'Alice', email: 'alice@gmail.com'},
@@ -76,23 +89,48 @@ const defaultData = {
   ],
 };
 
+// construct gqlify
 const gqlify = new Gqlify({
+  // provide datamodel to gqlify
   sdl,
+
+  // provide data-sources map to GQLify,
+  // so GQLify would know how to create data-source for each model
   dataSources: {
     memory: args => new MemoryDataSource(defaultData[args.key]),
   },
 });
+
+// GQLify will provide graphql apis & resolvers to apollo-server
 const server = new ApolloServer(gqlify.createApolloConfig());
 
+// start server
 server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
 ```
 
-Next, execute `index.js` to start gqlify:
+Next, execute `index.js` to start GraphQL server:
 
-```bash
-$: node index.js
+```shell
+$ node index.js
 ```
 
-Now, you can open `http://localhost:4000` and gqlify prepare CRUD api of `User` and `Book` for you. You don't need to write any other code. **Only thing which you need to do is define the schema and choose a data source.**
+![start](assets/screenshot/start.png)
+
+You can see all the fields and relations you defined.
+
+Then, open `http://localhost:4000` to see your graphQL playground.
+
+![playground](assets/screenshot/playground.png)
+
+
+GQLify will auto-generate all graphQL apis you need. You don't need to write any other code.
+
+## Demo
+<iframe src="https://codesandbox.io/embed/p7wqo43zpx?module=%2Fdatamodel.graphql" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+## Learn more
+* [Learn more about why using GQLify](/docs/why-gqlify)
+* [Learn more about data modeling]((/docs/data-model-overview))
+* [Learn more about auto-generated graphQL APIs](/docs/graphql-api)

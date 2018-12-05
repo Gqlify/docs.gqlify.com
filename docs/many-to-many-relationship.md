@@ -3,18 +3,31 @@ id: many-to-many-relationship
 title: Many-to-Many
 ---
 
-You can use directive `relation` to tell GQLify many-to-many relationship between two types. Directive `relation` has one parameter `name`. With many-to-many relationship, please define same `name` on field of two types. Like one user can join many groups, and one group can include many users.
+Many-to-Many relationships are another often used relationship. On the data-source level, it requires an additional association table which contains the primary key pairs of the associated entities.
 
+A typical example for such a many-to-many relationship are `Product` and `Store`. Each `Store` sells multiple `Product` and each `Product` gets sold in multiple `Store`.
+
+
+## Many-to-many
 ```graphql
-type User @GQLifyModel(dataSource: "memory", key: "users")  {
-  groups: [Group!]! @relation(name: "Membership")
+type Store @GQLifyModel(dataSource: "memory", key: "users") {
+  id: ID! @unique @autoGen
+  name: String
+  products: [Product!]!
 }
 
-type Group @GQLifyModel(dataSource: "memory", key: "groups")  {
-  users: [User!]! @relation(name: "Membership")
+type Product @GQLifyModel(dataSource: "memory", key: "books") {
+  id: ID! @unique @autoGen
+  name: String
+  stores: [Store!]!
 }
 ```
 
-Above relationship will be detect as bidirectional many-to-many relationship.
+GQLify will create `many-to-many` relationship between `Store` and `Product`.
 
-![bidirectional-many-to-many-relationship](assets/data-relationship/bidirectional-many-to-many.png)
+![many-to-many](assets/screenshot/many-to-many.png)
+
+## Under the hood
+The relationship join of `many-to-many` in GQLify relies on `ManyToManyRelation` interface of `DataSource`.
+
+> Learn more from [Create own data-source](/docs/create-own-data-source) section

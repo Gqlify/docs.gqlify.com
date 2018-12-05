@@ -3,7 +3,7 @@ id: jwt-signed-token
 title: JWT Signed Token
 ---
 
-GQLify provides `context` layer, you can define your context like Apollo Server. You can put some useful information like user's data in context. Following is example:
+GQLify provides `context` layer, GQLify will pass it to `apollo-server`. You can put some useful information like user's data in context. For example:
 
 ```js
 const jwt = require('jsonwebtoken')
@@ -29,4 +29,4 @@ const gqlify = new Gqlify({
 });
 ```
 
-With putting some information in context, you can get this information in middleware layer or resolver layer.
+With putting some information in context, you can get this information in middleware layer or resolver layer and do the authentication flow as you want.

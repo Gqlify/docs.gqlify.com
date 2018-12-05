@@ -3,30 +3,39 @@ id: one-to-many-relationship
 title: One-to-Many
 ---
 
-One-to-Many relationship can be auto detected by GQLify. Just define a field of type map to array of another type. Like an user can be author of many books.
+An example for a one-to-many relationship could be a `User` and the `Book`. Each `User` has many `Book` and each `Book` belongs to one `User`. On the data-source level, this mapped by a foreign key column on the `Book` side.
+
+Let’s take a look at the uni-directional `one-to-many` relationship first.
+
+## Uni-directional one-to-many
+In `User`, We define a to-many relation to `Book` via `books` field and we don't define to-one field in `Book`.
 
 ```graphql
-type User {
+type User @GQLifyModel(dataSource: "memory", key: "users") {
   books: [Book!]!
 }
 
-type Book {
-  author: User!
+type Book @GQLifyModel(dataSource: "memory", key: "books") {
+  name: String
 }
 ```
 
-GQLify will auto detect above relationship as bidirectional one-to-many-relationship.
+## Under the hood
+GQLify will insert a foreign key to `Book` record. When you query `User` and trying to map to many books, GQLify will call `findManyFromOneRelation` method of `DataSource` to get records.
 
-![bidirectional-one-to-many-relationship](assets/data-relationship/bidirectional-one-to-many.png)
-
-You can also define a field map to array of it's type. Like an user has many friends.
+## Bi-directional one-to-many
+Let's add another field in `Book`, so we can join data back from `Book` side.
 
 ```graphql
-type User {
-  friends: [User!]!
+type User @GQLifyModel(dataSource: "memory", key: "users") {
+  books: [Book!]!
+}
+
+type Book @GQLifyModel(dataSource: "memory", key: "books") {
+  name: String
+  author: User
 }
 ```
 
-Above relationship also can be detected as one-to-many relationship.
-
-![bidirectional-one-to-many-relationship-2](assets/data-relationship/bidirectional-one-to-many-2.png)
+## Under the hood
+The implementation of bi-directional one-to-many is the same with uni-directional one-to-many.

@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Why GQLify · Gqlify</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;GraphQL makes data fetching really clear by providing type-safe query language.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Why GQLify · Gqlify"/><meta property="og:type" content="website"/><meta property="og:url" content="https://www.gqlify.com/index.html"/><meta property="og:description" content="&lt;p&gt;GraphQL makes data fetching really clear by providing type-safe query language.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-130423409-1', 'auto');
+              ga('send', 'pageview');
+            </script><link rel="stylesheet" href="/css/code-blocks-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-blocks-buttons.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gqlify.svg" alt="Gqlify"/><h2 class="headerTitleWithLogo">Gqlify</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/quick-start" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Introduction</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/intro">Welcome</a></li><li class="navListItem"><a class="navItem" href="/docs/quick-start">Quick Start</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/why-gqlify">Why GQLify</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Data Model</h3><ul><li class="navListItem"><a class="navItem" href="/docs/data-model-overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/scalar-types">Scalar Types</a></li><li class="navListItem"><a class="navItem" href="/docs/object-types">Object Types</a></li><li class="navListItem"><a class="navItem" href="/docs/enum-types">Enum Types</a></li><li class="navListItem"><a class="navItem" href="/docs/data-model-relationships">Relationships</a></li><li class="navListItem"><a class="navItem" href="/docs/schema-directives">Schema directives</a></li><li class="navListItem"><a class="navItem" href="/docs/add-new-scalar">Add new Scalar</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Data Source</h3><ul><li class="navListItem"><a class="navItem" href="/docs/data-source-overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/memory">Memory</a></li><li class="navListItem"><a class="navItem" href="/docs/firebase">Firebase</a></li><li class="navListItem"><a class="navItem" href="/docs/firestore">Firestore</a></li><li class="navListItem"><a class="navItem" href="/docs/mongodb">MongoDB</a></li><li class="navListItem"><a class="navItem" href="/docs/create-own-data-source">Create Own Data-source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Data Relationship</h3><ul><li class="navListItem"><a class="navItem" href="/docs/relationship-overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/one-to-one-relationship">One-to-One</a></li><li class="navListItem"><a class="navItem" href="/docs/one-to-many-relationship">One-to-Many</a></li><li class="navListItem"><a class="navItem" href="/docs/many-to-many-relationship">Many-to-Many</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Authentication</h3><ul><li class="navListItem"><a class="navItem" href="/docs/jwt-signed-token">JWT Signed Token</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Why GQLify</h1></header><article><div><span><p>GraphQL makes data fetching really clear by providing type-safe query language.</p>
+<pre><code class="hljs css language-graphql"><span class="token comment"># You always get what you expected!</span>
+<span class="token punctuation">{</span>
+  users <span class="token punctuation">{</span>
+    id
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Under the surface, GraphQL server is a lot of work. You need to write graphQL schema and resolvers. Not to mention designing graphQL API including relationship is not easy.</p>
+<p>When you connect graphQL with data-source, you must carefully handle request cache, N+1 problem ...etc.</p>
+<p>So, what GQLify can help you with?</p>
+<h2><a class="anchor" aria-hidden="true" id="maintenance-of-graphql-schema"></a><a href="#maintenance-of-graphql-schema" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Maintenance of GraphQL Schema</h2>
+<h3><a class="anchor" aria-hidden="true" id="without-gqlify"></a><a href="#without-gqlify" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>😞 Without GQLify</h3>
+<p>You need to write graphQL Schema, take the demo application in quickstart for example, if you write the whole graphQL schema by yourself:</p>
+<pre><code class="hljs css language-graphql">type Book <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">author</span><span class="token punctuation">:</span> User<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+input BookCreateInput <span class="token punctuation">{</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">author</span><span class="token punctuation">:</span> BookCreateOneInput
+<span class="token punctuation">}</span>
+
+input BookCreateOneInput <span class="token punctuation">{</span>
+  <span class="token attr-name">create</span><span class="token punctuation">:</span> BookCreateInput
+  <span class="token attr-name">connect</span><span class="token punctuation">:</span> UserWhereUniqueInput
+<span class="token punctuation">}</span>
+
+input BookUpdateInput <span class="token punctuation">{</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">author</span><span class="token punctuation">:</span> BookUpdateOneInput
+<span class="token punctuation">}</span>
+
+input BookUpdateOneInput <span class="token punctuation">{</span>
+  <span class="token attr-name">create</span><span class="token punctuation">:</span> UserCreateInput
+  <span class="token attr-name">connect</span><span class="token punctuation">:</span> UserWhereUniqueInput
+  <span class="token attr-name">disconnect</span><span class="token punctuation">:</span> Boolean
+  <span class="token attr-name">delete</span><span class="token punctuation">:</span> Boolean
+<span class="token punctuation">}</span>
+
+type BookUpdateResponse <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+<span class="token punctuation">}</span>
+
+input BookWhereInput <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+
+input BookWhereUniqueInput <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+<span class="token punctuation">}</span>
+
+type BookWithUniqueFields <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+<span class="token punctuation">}</span>
+
+scalar JSON
+
+type Mutation <span class="token punctuation">{</span>
+  createUser<span class="token punctuation">(</span><span class="token attr-name">data</span><span class="token punctuation">:</span> UserCreateInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> User
+  updateUser<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> UserWhereUniqueInput<span class="token punctuation">,</span> <span class="token attr-name">data</span><span class="token punctuation">:</span> UserUpdateInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> UserUpdateResponse
+  deleteUser<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> UserWhereUniqueInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> UserWithUniqueFields
+  createBook<span class="token punctuation">(</span><span class="token attr-name">data</span><span class="token punctuation">:</span> BookCreateInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Book
+  updateBook<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> BookWhereUniqueInput<span class="token punctuation">,</span> <span class="token attr-name">data</span><span class="token punctuation">:</span> BookUpdateInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> BookUpdateResponse
+  deleteBook<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> BookWhereUniqueInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> BookWithUniqueFields
+<span class="token punctuation">}</span>
+
+type Query <span class="token punctuation">{</span>
+  user<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> UserWhereUniqueInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> User
+  users<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> UserWhereInput<span class="token punctuation">,</span> <span class="token attr-name">first</span><span class="token punctuation">:</span> Int<span class="token punctuation">,</span> <span class="token attr-name">last</span><span class="token punctuation">:</span> Int<span class="token punctuation">,</span> <span class="token attr-name">before</span><span class="token punctuation">:</span> String<span class="token punctuation">,</span> <span class="token attr-name">after</span><span class="token punctuation">:</span> String<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>User<span class="token punctuation">]</span>
+  book<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> BookWhereUniqueInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Book
+  books<span class="token punctuation">(</span><span class="token attr-name">where</span><span class="token punctuation">:</span> BookWhereInput<span class="token punctuation">,</span> <span class="token attr-name">first</span><span class="token punctuation">:</span> Int<span class="token punctuation">,</span> <span class="token attr-name">last</span><span class="token punctuation">:</span> Int<span class="token punctuation">,</span> <span class="token attr-name">before</span><span class="token punctuation">:</span> String<span class="token punctuation">,</span> <span class="token attr-name">after</span><span class="token punctuation">:</span> String<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Book<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+type User <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span>
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">books</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Book<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+input UserCreateInput <span class="token punctuation">{</span>
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">books</span><span class="token punctuation">:</span> UserCreateManyInput
+<span class="token punctuation">}</span>
+
+input UserCreateManyInput <span class="token punctuation">{</span>
+  <span class="token attr-name">create</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>UserCreateInput<span class="token punctuation">]</span>
+  <span class="token attr-name">connect</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>BookWhereUniqueInput<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+input UserUpdateInput <span class="token punctuation">{</span>
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">books</span><span class="token punctuation">:</span> UserUpdateManyInput
+<span class="token punctuation">}</span>
+
+input UserUpdateManyInput <span class="token punctuation">{</span>
+  <span class="token attr-name">create</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>BookCreateInput<span class="token punctuation">]</span>
+  <span class="token attr-name">connect</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>BookWhereUniqueInput<span class="token punctuation">]</span>
+  <span class="token attr-name">disconnect</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>BookWhereUniqueInput<span class="token punctuation">]</span>
+  <span class="token attr-name">delete</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>BookWhereUniqueInput<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+type UserUpdateResponse <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+<span class="token punctuation">}</span>
+
+input UserWhereInput <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+
+input UserWhereUniqueInput <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+<span class="token punctuation">}</span>
+
+type UserWithUniqueFields <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Every time you change API or add a new resource, you'll have to add <code>type</code>, <code>input</code>, queries and CRUD mutations all over again...</p>
+<h3><a class="anchor" aria-hidden="true" id="with-gqlify"></a><a href="#with-gqlify" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>💪 With GQLify</h3>
+<p>You no longer need to maintain the GraphQL Schema, GQLify auto-generates all GraphQL Schema for you, including queries and CRUD mutations, with only a few lines of code in datamodel.</p>
+<pre><code class="hljs css language-graphql">type User <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"memory"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"users"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">books</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Book<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+type Book <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"memory"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"books"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">author</span><span class="token punctuation">:</span> User<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="graphql-playground-demo"></a><a href="#graphql-playground-demo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL Playground demo</h4>
+<p>See for yourself!</p>
+<iframe src="https://codesandbox.io/embed/p7wqo43zpx?module=%2Fdatamodel.graphql" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<h2><a class="anchor" aria-hidden="true" id="relationship-is-hard-to-deal-with"></a><a href="#relationship-is-hard-to-deal-with" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Relationship is hard to deal with</h2>
+<h3><a class="anchor" aria-hidden="true" id="without-gqlify-1"></a><a href="#without-gqlify-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>😞 Without GQLify</h3>
+<p>When your application becomes complicated, you'll need mutation to handle relation.</p>
+<p>For example, you'll probably need mutation like this:</p>
+<pre><code class="hljs css language-graphql"><span class="token comment"># create a new user with connected books</span>
+<span class="token keyword">mutation</span> <span class="token punctuation">{</span>
+  createUser<span class="token punctuation">(</span>
+    <span class="token attr-name">data</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token attr-name">username</span><span class="token punctuation">:</span> <span class="token string">"newuser"</span><span class="token punctuation">,</span>
+      <span class="token attr-name">books</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token attr-name">connect</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token string">"bookId"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      id
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>As resolver, you'll have to write mutation resolver dealing with data creation and relation binding, which is tiring to deal with.</p>
+<p>Not just create, you have to implement according relation logics for <code>update</code>, <code>delete</code> and <code>query</code>. As application grows, it's harder and harder to maintain these logics.</p>
+<h3><a class="anchor" aria-hidden="true" id="with-gqlify-1"></a><a href="#with-gqlify-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>💪 With GQLify</h3>
+<p>GQLify automatically generate queries and mutations for you, including all the relation logics.</p>
+<pre><code class="hljs css language-graphql">type User <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"memory"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"users"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">books</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Book<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span>
+  <span class="token attr-name">adminedGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Group<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span> <span class="token directive function">@relation</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"Admin"</span><span class="token punctuation">)</span>
+  <span class="token attr-name">belongedGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Group<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span> <span class="token directive function">@relation</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"Membership"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+type Book <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"memory"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"books"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">author</span><span class="token punctuation">:</span> User<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+type Group <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"memory"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"groups"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">admins</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>User<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span> <span class="token directive function">@relation</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"Admin"</span><span class="token punctuation">)</span>
+  <span class="token attr-name">members</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>User<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span> <span class="token directive function">@relation</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"Membership"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>When you start your server, GQLify will print relations between models to let you understand the whole picture.</p>
+<p><img src="/docs/assets/screenshot/relation.png" alt="relation"></p>
+<h4><a class="anchor" aria-hidden="true" id="graphql-playground-demo-1"></a><a href="#graphql-playground-demo-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL Playground demo</h4>
+<p>Besides clear relationship overview, the built in graphQL API is easy to use as well.</p>
+<iframe src="https://codesandbox.io/embed/1ql2o8nv9q" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<h2><a class="anchor" aria-hidden="true" id="multiple-data-source"></a><a href="#multiple-data-source" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multiple data-source</h2>
+<p>Today, an e-commerce application might put their product inventory data in <code>Shopify</code>, user data in <code>Auth0</code>, search API on <code>Algolia</code> and articles on CMS platform.</p>
+<p>GraphQL provides possibility to serve data from all these different sources. That being said, it's still hard to write all the logics dealing all the data-sources from scratch.</p>
+<h3><a class="anchor" aria-hidden="true" id="without-gqlify-2"></a><a href="#without-gqlify-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>😞 Without GQLify</h3>
+<p>You'll need to deal with following:</p>
+<ol>
+<li>Design graphQL schema</li>
+<li>Design relationship between different data-sources</li>
+<li>Write resolvers for queries/mutations and their return types</li>
+</ol>
+<p>All these tasks will take you several weeks, even months to deal with.</p>
+<h3><a class="anchor" aria-hidden="true" id="with-gqlify-2"></a><a href="#with-gqlify-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>💪 With GQLify</h3>
+<p>GQLify is an API agnostic framework, so it's easier to define relationship between data-sources in GQLify datamodel.</p>
+<pre><code class="hljs css language-graphql">type User <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"auth0"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">username</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">email</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">books</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Book<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span>
+  <span class="token attr-name">transactions</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Transaction<span class="token operator">!</span><span class="token punctuation">]</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+type Book <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"firebase"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"books"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">author</span><span class="token punctuation">:</span> User<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+type Transaction <span class="token directive function">@GQLifyModel</span><span class="token punctuation">(</span><span class="token attr-name">dataSource</span><span class="token punctuation">:</span> <span class="token string">"stripe"</span><span class="token punctuation">,</span> <span class="token attr-name">key</span><span class="token punctuation">:</span> <span class="token string">"transaction"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span> <span class="token directive function">@unique</span> <span class="token directive function">@autoGen</span>
+  <span class="token attr-name">amount</span><span class="token punctuation">:</span> Float
+<span class="token punctuation">}</span>
+</code></pre>
+<p>With simple declaration, your graphQL server is done!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/quick-start"><span class="arrow-prev">← </span><span>Quick Start</span></a><a class="docs-next button" href="/docs/data-model-overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#maintenance-of-graphql-schema">Maintenance of GraphQL Schema</a><ul class="toc-headings"><li><a href="#without-gqlify">😞 Without GQLify</a></li><li><a href="#with-gqlify">💪 With GQLify</a></li></ul></li><li><a href="#relationship-is-hard-to-deal-with">Relationship is hard to deal with</a><ul class="toc-headings"><li><a href="#without-gqlify-1">😞 Without GQLify</a></li><li><a href="#with-gqlify-1">💪 With GQLify</a></li></ul></li><li><a href="#multiple-data-source">Multiple data-source</a><ul class="toc-headings"><li><a href="#without-gqlify-2">😞 Without GQLify</a></li><li><a href="#with-gqlify-2">💪 With GQLify</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gqlify.svg" alt="Gqlify" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/Canner/gqlify" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2018 Gqlify.  Canner. Inc.</section></footer></div><script src="http://localhost:undefined/livereload.js"></script></body></html>

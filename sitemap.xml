@@ -3,14 +3,15 @@
 <url> <loc>https://www.gqlify.com/help</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/en/help" /> </url>
 <url> <loc>https://www.gqlify.com/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/en/index" /> </url>
 <url> <loc>https://www.gqlify.com/users</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/en/users" /> </url>
-<url> <loc>https://www.gqlify.com/docs/about-gqlify</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/about-gqlify" /> </url>
 <url> <loc>https://www.gqlify.com/docs/add-new-scalar</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/add-new-scalar" /> </url>
+<url> <loc>https://www.gqlify.com/docs/create-own-data-source</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/create-own-data-source" /> </url>
 <url> <loc>https://www.gqlify.com/docs/data-model-overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/data-model-overview" /> </url>
 <url> <loc>https://www.gqlify.com/docs/data-model-relationships</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/data-model-relationships" /> </url>
-<url> <loc>https://www.gqlify.com/docs/data-relationship</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/data-relationship" /> </url>
 <url> <loc>https://www.gqlify.com/docs/data-source-overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/data-source-overview" /> </url>
+<url> <loc>https://www.gqlify.com/docs/enum-types</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/enum-types" /> </url>
 <url> <loc>https://www.gqlify.com/docs/firebase</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/firebase" /> </url>
 <url> <loc>https://www.gqlify.com/docs/firestore</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/firestore" /> </url>
+<url> <loc>https://www.gqlify.com/docs/intro</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/intro" /> </url>
 <url> <loc>https://www.gqlify.com/docs/jwt-signed-token</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/jwt-signed-token" /> </url>
 <url> <loc>https://www.gqlify.com/docs/many-to-many-relationship</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/many-to-many-relationship" /> </url>
 <url> <loc>https://www.gqlify.com/docs/memory</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/memory" /> </url>
@@ -19,6 +20,8 @@
 <url> <loc>https://www.gqlify.com/docs/one-to-many-relationship</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/one-to-many-relationship" /> </url>
 <url> <loc>https://www.gqlify.com/docs/one-to-one-relationship</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/one-to-one-relationship" /> </url>
 <url> <loc>https://www.gqlify.com/docs/quick-start</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/quick-start" /> </url>
+<url> <loc>https://www.gqlify.com/docs/relationship-overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/relationship-overview" /> </url>
 <url> <loc>https://www.gqlify.com/docs/scalar-types</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/scalar-types" /> </url>
 <url> <loc>https://www.gqlify.com/docs/schema-directives</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/schema-directives" /> </url>
+<url> <loc>https://www.gqlify.com/docs/why-gqlify</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/why-gqlify" /> </url>
 </urlset>

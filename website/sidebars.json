@@ -3,7 +3,8 @@
     "Introduction": [
       "intro",
       "quick-start",
-      "why-gqlify"
+      "why-gqlify",
+      "vs-prisma"
     ],
     "Data Model": [
       "data-model-overview",

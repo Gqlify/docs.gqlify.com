@@ -34,5 +34,6 @@
 <url> <loc>https://www.gqlify.com/docs/relationship-overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/relationship-overview" /> </url>
 <url> <loc>https://www.gqlify.com/docs/scalar-types</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/scalar-types" /> </url>
 <url> <loc>https://www.gqlify.com/docs/schema-directives</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/schema-directives" /> </url>
+<url> <loc>https://www.gqlify.com/docs/vs-prisma</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/vs-prisma" /> </url>
 <url> <loc>https://www.gqlify.com/docs/why-gqlify</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.gqlify.com/docs/why-gqlify" /> </url>
 </urlset>

@@ -6,9 +6,9 @@ title: Welcome
 ![home](assets/screenshot/home.png)
 
 ## About GQLify
-Building a graphQL server could be hard! All the maintenance efforts around graphQL schema, resolver logics and relationship between different APIs really take developers lots of time.
+Building a GraphQL server could be hard! All the maintenance efforts around GraphQL schema, resolver logics and relationship between different APIs really take developers lots of time.
 
-GQLify let developers build a complete graphQL server with only one datamodel file.
+GQLify let developers build a complete GraphQL server with only one datamodel file.
 
 ```graphql
 type User @GQLifyModel(dataSource: "memory", key: "users") {
@@ -25,7 +25,7 @@ type Book @GQLifyModel(dataSource: "memory", key: "books") {
 }
 ```
 
-With datamodel above, you get all the graphQL APIs with relationship built-in.
+With datamodel above, you get all the GraphQL APIs with relationship built-in.
 
 ✨ See for yourself!
 

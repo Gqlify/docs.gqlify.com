@@ -3,7 +3,7 @@ id: enum-types
 title: Enum Types
 ---
 
-> (Quoted from graphQL website) ...
+> (Quoted from GraphQL website) ...
 >
 > Enum types are a special kind of scalar that is restricted to a particular set of allowed values. This allows you to:
 > 

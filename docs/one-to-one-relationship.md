@@ -19,7 +19,7 @@ type ShippingAddress @GQLifyModel(dataSource: "memory", key: "shippingAddress") 
 ```
 
 ## Under the hood
-GQLify will insert a foreign key to `User` record and map the foreign key to data in graphQL resolver.
+GQLify will insert a foreign key to `User` record and map the foreign key to data in GraphQL resolver.
 
 ## Bi-directional one-to-one
 The bi-directional one-to-one relationship extends the uni-directional relationship, so that you can also navigate it in the other direction. In this example, you also add a field in `ShippingAddress` type pointing to `Uer`, so that you can get the `User` for a giving `ShippingAddress`.

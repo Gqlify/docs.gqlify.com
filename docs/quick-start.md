@@ -101,7 +101,7 @@ const gqlify = new Gqlify({
   },
 });
 
-// GQLify will provide graphql apis & resolvers to apollo-server
+// GQLify will provide GraphQL apis & resolvers to apollo-server
 const server = new ApolloServer(gqlify.createApolloConfig());
 
 // start server
@@ -120,12 +120,12 @@ $ node index.js
 
 You can see all the fields and relations you defined.
 
-Then, open `http://localhost:4000` to see your graphQL playground.
+Then, open `http://localhost:4000` to see your GraphQL playground.
 
 ![playground](assets/screenshot/playground.png)
 
 
-GQLify will auto-generate all graphQL apis you need. You don't need to write any other code.
+GQLify will auto-generate all GraphQL apis you need. You don't need to write any other code.
 
 ## Demo
 <iframe src="https://codesandbox.io/embed/p7wqo43zpx?module=%2Fdatamodel.graphql" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
@@ -133,4 +133,4 @@ GQLify will auto-generate all graphQL apis you need. You don't need to write any
 ## Learn more
 * [Learn more about why using GQLify](/docs/why-gqlify)
 * [Learn more about data modeling]((/docs/data-model-overview))
-* [Learn more about auto-generated graphQL APIs](/docs/graphql-api)
+* [Learn more about auto-generated GraphQL APIs](/docs/graphql-api)

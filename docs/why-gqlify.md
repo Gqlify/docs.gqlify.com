@@ -15,15 +15,15 @@ GraphQL makes data fetching really clear by providing type-safe query language.
 }
 ```
 
-Under the surface, GraphQL server is a lot of work. You need to write graphQL schema and resolvers. Not to mention designing graphQL API including relationship is not easy.
+Under the surface, GraphQL server is a lot of work. You need to write GraphQL schema and resolvers. Not to mention designing GraphQL API including relationship is not easy.
 
-When you connect graphQL with data-source, you must carefully handle request cache, N+1 problem ...etc.
+When you connect GraphQL with data-source, you must carefully handle request cache, N+1 problem ...etc.
 
 So, what GQLify can help you with?
 
 ## Maintenance of GraphQL Schema
 ### 😞 Without GQLify
-You need to write graphQL Schema, take the demo application in quickstart for example, if you write the whole graphQL schema by yourself:
+You need to write GraphQL schema, take the demo application in quickstart for example, if you write the whole GraphQL schema by yourself:
 
 ```graphql
 type Book {
@@ -219,7 +219,7 @@ When you start your server, GQLify will print relations between models to let yo
 ![relation](assets/screenshot/relation.png)
 
 #### GraphQL Playground demo
-Besides clear relationship overview, the built in graphQL API is easy to use as well.
+Besides clear relationship overview, the built in GraphQL API is easy to use as well.
 
 <iframe src="https://codesandbox.io/embed/1ql2o8nv9q" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
@@ -230,7 +230,7 @@ GraphQL provides possibility to serve data from all these different sources. Tha
 
 ### 😞 Without GQLify
 You'll need to deal with following:
-1. Design graphQL schema
+1. Design GraphQL schema
 2. Design relationship between different data-sources
 3. Write resolvers for queries/mutations and their return types
 
@@ -260,4 +260,4 @@ type Transaction @GQLifyModel(dataSource: "stripe", key: "transaction") {
 }
 ```
 
-With simple declaration, your graphQL server is done!
+With simple declaration, your GraphQL server is done!

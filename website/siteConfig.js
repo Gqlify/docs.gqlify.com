@@ -21,8 +21,8 @@
 // ];
 
 const siteConfig = {
-  title: 'Gqlify', // Title for your website.
-  tagline: 'Gqlify official documentation',
+  title: 'GQLify', // Title for your website.
+  tagline: 'GQLify official documentation',
   url: 'https://www.gqlify.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -38,7 +38,10 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'quick-start', label: 'Docs'},
+    {doc: 'quick-start', label: 'Quick Start'},
+    {doc: 'why-gqlify', label: 'Why GQLify'},
+    {href: 'https://github.com/Canner/gqlify', label: 'Github'},
+    // {searchable: true}
     // {doc: 'doc4', label: 'API'},
     // {page: 'help', label: 'Help'},
     // {blog: true, label: 'Blog'},

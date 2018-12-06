@@ -104,6 +104,10 @@ const siteConfig = {
   // Open Graph and Twitter card images.
   // ogImage: 'img/docusaurus.png',
   // twitterImage: 'img/docusaurus.png',
+  algolia: {
+    apiKey: '9462eca4ab58c60ebd7ad3f2c400f250',
+    indexName: 'gqlify',
+  },
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,

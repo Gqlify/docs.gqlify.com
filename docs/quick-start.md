@@ -73,6 +73,7 @@ Add following code to `index.js`:
 ```js
 const { Gqlify, MemoryDataSource } = require('@gqlify/server')
 const { ApolloServer } = require('apollo-server');
+const { readFileSync } = require('fs');
 
 // Read datamodel
 const sdl = readFileSync(__dirname + '/demo.graphql', { encoding: 'utf8' });

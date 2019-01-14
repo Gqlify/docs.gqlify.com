@@ -6,14 +6,30 @@ title: MongoDB
 ## 1. Construct MongoDB data-source
 ```js
 const { Gqlify } = require('@gqlify/server')
-const MongodbDataSource = require('@gqlify/mongodb')
+const { MongodbDataSourceGroup } = require('@gqlify/mongodb')
 
-const gqlify = new Gqlify({
-  sdl: ...,
-  dataSources: {
-    mongodb: args => new MongodbDataSource({uri, dbName, collectionName: args.key}),
-  },
-});
+// connect to your mongoUri. You might keep your mongoUri in env.
+const mongoUri = process.env.MONOG_URI;
+
+// new MongodbDataSourceGroup(uri, database)
+const mongodbDataSourceGroup = new MongodbDataSourceGroup(mongoUri, 'gqlify');
+
+const createGraphQLServer = async () => {
+  // initialize mongo connection
+  await mongodbDataSourceGroup.initialize();
+
+  // put to Gqlify dataSources
+  const gqlify = new Gqlify({
+    sdl: ...,
+    dataSources: {
+      // getDataSource(collectionName): `collectionName` is the name of the collection you'd like to use
+      mongodb: args => mongodbDataSourceGroup.getDataSource(args.key),
+    },
+  });
+  
+  // create apollo server with gqlify config
+  return new ApolloServer(gqlify.createApolloConfig());
+}
 ```
 
 ## 2. Use in datamodel
@@ -24,9 +40,19 @@ type User @GQLifyModel(dataSource: "mongodb", key: "users") {
 }
 ```
 
-## MongodbDataSource
-```js
-new MongodbDataSource({uri, dbName, collectionName});
+## MongodbDataSourceGroup
+```ts
+new MongodbDataSourceGroup(mongoUri: string, database: string);
+```
+
+### MongodbDataSourceGroup.initialize
+```ts
+MongodbDataSourceGroup.initialize: Promise<void>;
+```
+
+### MongodbDataSourceGroup.getDataSource
+```ts
+MongodbDataSourceGroup.getDataSource(collectionName: string): MongodbDataSource;
 ```
 
 ### Arguments

@@ -2,10 +2,16 @@
 id: firestore
 title: Firestore
 ---
-## 1. download serviceAccount.json
+
+## 1. Install dependencies
+```sh
+$ yarn add firebase-admin @gqlify/server @gqlify/firestore
+```
+
+## 2. Download serviceAccount.json
 ![how-to-get-service-account-json](assets/data-source/firebasesdk.gif)
 
-## 2. Construct Firestore data-source
+## 3. Construct Firestore data-source
 ```js
 const admin = require('firebase-admin');
 const { Gqlify } = require('@gqlify/server');
@@ -26,7 +32,7 @@ const gqlify = new Gqlify({
 });
 ```
 
-## 3. Use in datamodel
+## 4. Use in datamodel
 ```graphql
 type User @GQLifyModel(dataSource: "firestore", key: "users") {
   id: ID! @unique @autoGen

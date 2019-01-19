@@ -5,7 +5,7 @@ title: Firebase
 
 ## 1. Install dependencies
 ```sh
-$ yarn add firebase-admin @gqlify/server @gqlify/firebase
+$ yarn add firebase-admin graphql @gqlify/server @gqlify/firebase
 ```
 
 ## 2. Download serviceAccount.json

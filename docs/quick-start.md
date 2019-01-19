@@ -24,11 +24,11 @@ $ cd gqlify-demo
 
 ### Install GQLify
 
-Initialize project in current directory and install `@gqlify/server`.
+Initialize project in current directory. Then, install `@gqlify/server` and peer dependencies.
 
 ```shell
 $ yarn init -y
-$ yarn add @gqlify/server
+$ yarn add @gqlify/server graphql
 ```
 
 ## Setup Datamodel

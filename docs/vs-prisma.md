@@ -3,7 +3,7 @@ id: vs-prisma
 title: Compared to Prisma
 ---
 
-**Hey there!** You're probably wondering what the differences are between GQLify and a Prisma, so we thought we'd give put together a quick overview.
+**Hey there!** You're probably wondering what the differences are between GQLify and a Prisma, so we thought we'd put together a quick overview.
 
 **First of all, GQLify and Prisma are different solutions serve different purposes.**
 

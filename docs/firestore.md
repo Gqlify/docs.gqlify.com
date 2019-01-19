@@ -23,9 +23,10 @@ const gqlify = new Gqlify({
   sdl: ...,
   dataSources: {
     firestore: args => new FirestoreDataSource({
+      config: {
         credential: admin.credential.cert(cert),
         databaseURL,
-      },
+      }
       collection: args.key,
     }),
   },

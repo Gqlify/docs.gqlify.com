@@ -51,9 +51,10 @@
   sdl<span class="token punctuation">:</span> <span class="token operator">...</span><span class="token punctuation">,</span>
   dataSources<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     firestore<span class="token punctuation">:</span> args <span class="token operator">=></span> <span class="token keyword">new</span> <span class="token class-name">FirestoreDataSource</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      config<span class="token punctuation">:</span> <span class="token punctuation">{</span>
         credential<span class="token punctuation">:</span> admin<span class="token punctuation">.</span>credential<span class="token punctuation">.</span><span class="token function">cert</span><span class="token punctuation">(</span>cert<span class="token punctuation">)</span><span class="token punctuation">,</span>
         databaseURL<span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
       collection<span class="token punctuation">:</span> args<span class="token punctuation">.</span>key<span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
